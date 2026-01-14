@@ -35,6 +35,9 @@
 
           # Wayland
           wayland
+
+          # Building
+          pkg-config
         ];
         LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}";
       };
