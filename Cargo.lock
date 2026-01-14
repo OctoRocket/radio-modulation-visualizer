@@ -2489,7 +2489,6 @@ dependencies = [
  "anyhow",
  "cpal",
  "eframe",
- "egui",
  "rand",
  "thiserror 2.0.17",
 ]

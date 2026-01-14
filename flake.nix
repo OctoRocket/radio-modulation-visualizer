@@ -21,7 +21,7 @@
       devShells.default = pkgs.mkShell rec {
         buildInputs = with pkgs; [
           # General
-          (rust-bin.stable.latest.default.override { extensions = ["rust-src"]; })
+          (rust-bin.unstable.latest.default.override { extensions = ["rust-src"]; })
           libxkbcommon
           libGL
 
@@ -41,7 +41,7 @@
         ];
         LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}";
       };
-      packages.default = pkgs.callPackage ./default.nix {};
+      # packages.default = pkgs.callPackage ./default.nix {};
     }
   );
 }
