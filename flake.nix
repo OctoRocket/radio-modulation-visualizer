@@ -21,7 +21,7 @@
       devShells.default = pkgs.mkShell rec {
         buildInputs = with pkgs; [
           # General
-          (rust-bin.unstable.latest.default.override { extensions = ["rust-src"]; })
+          (rust-bin.stable.latest.default.override { extensions = ["rust-src"]; })
           libxkbcommon
           libGL
 
