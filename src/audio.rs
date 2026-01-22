@@ -10,12 +10,12 @@ use cpal::{
     StreamConfig
 };
 
-use crate::shared::{StreamBufferPassthrough, BUFFER_SIZE};
+use crate::shared::{BUFFER_SIZE, CHANNEL_COUNT, StreamBufferPassthrough};
 
 pub fn sinewave_stream(output_device: &Device, output_config: &StreamConfig, speed: f32) -> Result<(Stream, StreamBufferPassthrough, Arc<RwLock<SineWave>>)> {
     let sine_wave = Arc::new(RwLock::new(SineWave::new(speed)));
 
-    let buffer_passthrough = Arc::new(RwLock::new(Vec::with_capacity(BUFFER_SIZE as usize)));
+    let buffer_passthrough = Arc::new(RwLock::new(Vec::with_capacity(BUFFER_SIZE * CHANNEL_COUNT)));
 
     let buffer_thread_passthrough = buffer_passthrough.clone();
     let sine_wave_ref = sine_wave.clone();
